@@ -13,6 +13,12 @@ export default class Main extends Component {
 
   componentDidMount() {
     //axios call
+    axios
+      .get("/api/info")
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(console.log());
   }
 
   render() {

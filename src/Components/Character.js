@@ -9,3 +9,5 @@ const Character = props => {
 };
 
 export default Character;
+
+// https://wow.zamimg.com/images/wow/icons/large/
