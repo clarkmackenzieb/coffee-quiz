@@ -3,48 +3,54 @@ const { apiKey } = require("../config.js");
 const baseUrl = `https://us.api.battle.net/wow/character/Whisperwind/Amilanae?locale=en_US&apikey=${apiKey}`;
 
 module.exports = {
-  getAll: (req, res) => {
-    let dataResponse = {
-      profile: {},
-      items: {},
-      stats: {},
-      realm: {},
-      progression: {}
-    };
-
+  getProfile: (req, res) => {
     axios
       .get(`${baseUrl}`)
       .then(response => {
-        dataResponse.profile = response.data;
+        res.status(200).json(response.data);
       })
       .catch(console.log());
+  },
+  getProgression: (req, res) => {
     axios
       .get(`${baseUrl}&fields=progression`)
       .then(response => {
-        dataResponse.progression = response.data;
+        res.status(200).json(response.data);
       })
       .catch(console.log());
-    axios
-      .get(`${baseUrl}&fields=items`)
-      .then(response => {
-        dataResponse.items = response.data;
-      })
-      .catch(console.log());
+  },
+  getStats: (req, res) => {
     axios
       .get(`${baseUrl}&fields=stats`)
       .then(response => {
-        dataResponse.stats = response.data;
+        res.status(200).json(response.data);
       })
       .catch(console.log());
+  },
+  getRealmStatus: (req, res) => {
     axios
       .get(
         `https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=${apiKey}&realms=whisperwind`
       )
       .then(response => {
-        dataResponse.realm = response.data;
+        res.status(200).json(response.data);
       })
       .catch(console.log());
-
-    res.status(200).json(dataResponse);
+  },
+  getItems: (req, res) => {
+    axios
+      .get(`${baseUrl}&fields=items`)
+      .then(response => {
+        res.status(200).json(response.data);
+      })
+      .catch(console.log());
+  },
+  getFeed: (req, res) => {
+    axios
+      .get(`${baseUrl}&fields=feed`)
+      .then(response => {
+        res.status(200).json(response.data);
+      })
+      .catch(console.log());
   }
 };
