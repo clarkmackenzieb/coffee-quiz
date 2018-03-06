@@ -67,19 +67,18 @@ export default class Main extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <h1>Main</h1>
-        <Character
-          profile={this.state.profile}
-          stats={this.state.stats}
-          items={this.state.items}
-        />
         <Status
           realm={this.state.realm}
           feed={this.state.feed}
           progression={this.state.progression}
+        />
+        <Character
+          profile={this.state.profile}
+          stats={this.state.stats}
+          items={this.state.items}
         />
       </div>
     );
