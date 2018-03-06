@@ -41,7 +41,30 @@ module.exports = {
     axios
       .get(`${baseUrl}&fields=items`)
       .then(response => {
-        res.status(200).json(response.data);
+        let iLvl = response.data.items.averageItemLevelEquipped;
+        let itemList = [
+          response.data.items.back,
+          response.data.items.chest,
+          response.data.items.feet,
+          response.data.items.finger1,
+          response.data.items.finger2,
+          response.data.items.hands,
+          response.data.items.head,
+          response.data.items.legs,
+          response.data.items.mainHand,
+          response.data.items.neck,
+          response.data.items.shirt,
+          response.data.items.tabard,
+          response.data.items.trinket1,
+          response.data.items.trinket2,
+          response.data.items.waist,
+          response.data.items.wrist,
+          response.data.items.shoulder
+        ];
+        res.status(200).json({
+          iLvl: response.data.items.averageItemLevelEquipped,
+          itemList
+        });
       })
       .catch(console.log());
   },

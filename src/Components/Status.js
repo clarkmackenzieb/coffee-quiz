@@ -4,7 +4,7 @@ import moment from "moment";
 
 const Status = props => {
   let progressionCheck = "";
-
+  console.log(props);
   if (props.progression) {
     progressionCheck = props.progression.map((raid, i) => {
       let lfr = 0;
@@ -29,6 +29,7 @@ const Status = props => {
       return (
         <div key={i} className="progression-row">
           <p>
+            {raid.name}&nbsp;
             {lfr} / {raid.bosses.length} &nbsp;
             {n} / {raid.bosses.length} &nbsp;
             {h} / {raid.bosses.length} &nbsp;
@@ -38,8 +39,6 @@ const Status = props => {
       );
     });
   }
-  // checks day
-  console.log("1", moment().day());
 
   return (
     <div>
@@ -56,7 +55,7 @@ const Status = props => {
         )}
       </div>
       <div className="progression-container">
-        <p>LFR&nbsp; N&nbsp; H&nbsp; M&nbsp;</p>
+        <p>Difficulty&nbsp;LFR&nbsp; N&nbsp; H&nbsp; M&nbsp;</p>
         {progressionCheck}
       </div>
     </div>

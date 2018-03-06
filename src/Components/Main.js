@@ -55,7 +55,7 @@ export default class Main extends Component {
     axios
       .get("http://localhost:3005/api/items")
       .then(response => {
-        this.setState({ items: response.data.items });
+        this.setState({ items: response.data });
       })
       .catch(console.log());
     axios
