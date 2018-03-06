@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.realm-raid-upper-status {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.raid-display {
+  height: 100px;
+  width: 160px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.realm-status {
+  height: 100px;
+  width: 160px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.status-true {
+  background-color: green;
+}
+
+.status-false {
+  background-color: red;
+}
+
+.progression-chart {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  height: 250px;
+}
+.progression-row {
+  max-height: 100px;
+  width: 47px;
+  margin: 0px 5px;
+}
+
+.progression-container {
+  height: 130px;
+  border: black 3px solid;
+  margin: 3px;
+  border-radius: 5px;
+}
+
+.progression-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 40px;
+}
+
+.progression-difficulty {
+  height: 100px;
+  width: 47px;
+  display: flex;
+  flex-direction: column;
+}

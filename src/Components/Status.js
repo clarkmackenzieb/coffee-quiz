@@ -1,9 +1,14 @@
 import React from "react";
 
 import moment from "moment";
+import "./styles.css";
 
 const Status = props => {
   let progressionCheck = "";
+  let realmDisplay = "";
+  let statusCheck = "";
+  let queueCheck = "";
+
   console.log(props);
   if (props.progression) {
     progressionCheck = props.progression.map((raid, i) => {
@@ -29,34 +34,70 @@ const Status = props => {
       return (
         <div key={i} className="progression-row">
           <p>
-            {raid.name}&nbsp;
-            {lfr} / {raid.bosses.length} &nbsp;
-            {n} / {raid.bosses.length} &nbsp;
-            {h} / {raid.bosses.length} &nbsp;
-            {m} / {raid.bosses.length} &nbsp;
+            {lfr} / {raid.bosses.length}
+          </p>
+          <p>
+            {n} / {raid.bosses.length}
+          </p>
+          <p>
+            {h} / {raid.bosses.length}
+          </p>
+          <p>
+            {m} / {raid.bosses.length}
           </p>
         </div>
       );
     });
   }
 
+  if (props.realm) {
+    props.realm.status
+      ? (statusCheck = "status-true")
+      : (statusCheck = "status-false");
+    !props.realm.queue
+      ? (queueCheck = "No Queue")
+      : (queueCheck = "Realm Full");
+    realmDisplay = (
+      <div className={`realm-status ${statusCheck}`}>
+        <h2>{props.realm.name}</h2>
+        <h3>Population: {props.realm.population}</h3>
+        <h3>{props.realm.status && queueCheck}</h3>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <div className="realm-status">
-        <h2>{props.realm.name}</h2>
-        <h3>{props.realm.status && "Online"}</h3>
-        <h3>{props.realm.status && "No Queue"}</h3>
+      <div className="realm-raid-upper-status">
+        {realmDisplay}
+        <div className="raid-display">
+          {moment().day() === 5 || moment().day() === 6 ? (
+            <div className="raid-true">Raid Tonight!</div>
+          ) : (
+            <div className="raid-false">No Raid Tonight</div>
+          )}
+          <div>{moment().format("dddd, MMMM Do YYYY")}</div>
+        </div>
       </div>
-      <div>
-        {moment().day() === 5 || moment().day() === 6 ? (
-          <div className="raid-true">Raid Tonight!</div>
-        ) : (
-          <div className="raid-false">No Raid Tonight</div>
-        )}
-      </div>
+      <h3>Progression Status</h3>
       <div className="progression-container">
-        <p>Difficulty&nbsp;LFR&nbsp; N&nbsp; H&nbsp; M&nbsp;</p>
-        {progressionCheck}
+        <p className="progression-name">
+          <span>Type</span>
+          <span>EN</span>
+          <span>ToV</span>
+          <span>NH</span>
+          <span>ToS</span>
+          <span>ATBT</span>
+        </p>
+        <div className="progression-chart">
+          <div className="progression-difficulty">
+            <p>LFR</p>
+            <p> N</p>
+            <p> H</p>
+            <p> M</p>
+          </div>
+          {progressionCheck}
+        </div>
       </div>
     </div>
   );
