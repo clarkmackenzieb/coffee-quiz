@@ -3,6 +3,33 @@
   padding: 0;
 }
 
+.indiv-item {
+  display: flex;
+  margin: 5px;
+}
+
+.indiv-item-image {
+  border-radius: 10px;
+}
+
+.character-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.character-avatar {
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 50px;
+}
+
+.character-info {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: auto 0;
+}
+
 .realm-raid-upper-status {
   display: flex;
   flex-direction: row;
