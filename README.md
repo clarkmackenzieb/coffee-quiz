@@ -36,4 +36,4 @@ I think this project could also be useful to guilds who want to check out potent
 
 ## Acknowledgements 
 
-I'd like to thank my guild for cheering me on, helping me dig up icons images, and sending me cat pictures when I got frustrated. Thank you to my sister Brianna and brother Alex for giving me critique of my site and offering suggestions, and a final thank you to Dylan, who watched me put this project together first-hand. 
+I'd like to thank my guild for cheering me on, helping me dig up icons and images, and sending me cat pictures when I got frustrated. Thank you to my sister Brianna and brother Alex for giving me critique of my site and offering suggestions, and a final thank you to Dylan, who watched me put this project together first-hand. 
