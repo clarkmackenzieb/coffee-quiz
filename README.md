@@ -4,7 +4,7 @@ In the real world, I'm a web developer named Mackenzie, but online I'm a druid n
 
 ## Instructions
 
-Before viewing this project, you need a Battle.net API key, which can be acquired https://dev.battle.net/ HERE. Within the server file, on the same level as index.js, create a config file with the following format:
+Before viewing this project, you need a Battle.net API key, which can be acquired at https://dev.battle.net/ . Within the server file, on the same level as index.js, create a config file with the following format:
 
 ```
 module.exports = {
