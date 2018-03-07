@@ -5,6 +5,7 @@ import "./styles.css";
 const Character = props => {
   return (
     <div>
+      {/* Mobile section of character display */}
       <div className="character-container" id="mobile-character">
         <img
           src={`https://render-us.worldofwarcraft.com/character/${
@@ -25,8 +26,10 @@ const Character = props => {
           </p>
         </div>
       </div>
+      {/* Desktop section of character display */}
       <div id="character-desktop">
         <div className="character-panel">
+        {/* The clone of the world of warcraft character profile */}
           <div className="character-gear-panel">
             <div className="gear-panel-top">
               <img
@@ -411,4 +414,4 @@ const Character = props => {
 
 export default Character;
 
-// https://wow.zamimg.com/images/wow/icons/large/
+

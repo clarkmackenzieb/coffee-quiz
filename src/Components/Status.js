@@ -1,15 +1,21 @@
 import React from "react";
 
+// importing moment.js to handle everything time-related
 import moment from "moment";
+
+// importing stylesheet
 import "./styles.css";
 
+// I decided functional components would be most efficient w/ use of props
 const Status = props => {
+  // Setting variables that will late be re-assigned to JSX
   let progressionCheck = "";
   let realmDisplay = "";
   let statusCheck = "";
   let queueCheck = "";
   let achievements = "";
 
+  // Setting the achievement section
   if (props.feed) {
     achievements = props.feed.filter(x => {
       return x.type === "ACHIEVEMENT";
@@ -30,6 +36,8 @@ ${ach.achievement.icon}.jpg`}
       );
     });
   }
+
+  // Setting the progression section
   if (props.progression) {
     progressionCheck = props.progression.map((raid, i) => {
       let lfr = 0;
@@ -70,6 +78,7 @@ ${ach.achievement.icon}.jpg`}
     });
   }
 
+  // Setting the realm status section
   if (props.realm) {
     props.realm.status
       ? (statusCheck = "status-true")

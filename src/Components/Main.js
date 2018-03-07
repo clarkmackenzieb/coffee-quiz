@@ -21,7 +21,7 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    //axios call
+    // All the information couldn't be sent in one response, so I broke them up
     axios
       .get("http://localhost:3005/api/profile")
       .then(response => {
