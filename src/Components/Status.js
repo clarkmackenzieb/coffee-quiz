@@ -16,16 +16,16 @@ const Status = props => {
   let achievements = "";
 
   // Setting the achievement section
-  if (props.feed) {
-    achievements = props.feed.filter(x => {
+
+  achievements = props.feed
+    .filter(x => {
       return x.type === "ACHIEVEMENT";
-    });
-    achievements = achievements.map((ach, i) => {
+    })
+    .map((ach, i) => {
       return (
         <div className="white-text achievement-card" key={i}>
           <img
-            src={`https://wow.zamimg.com/images/wow/icons/large/
-${ach.achievement.icon}.jpg`}
+            src={`https://wow.zamimg.com/images/wow/icons/large/${ach.achievement.icon}.jpg`}
             alt="achievement-icon"
             className="achievement-image"
           />
@@ -35,76 +35,68 @@ ${ach.achievement.icon}.jpg`}
         </div>
       );
     });
-  }
 
   // Setting the progression section
-  if (props.progression) {
-    progressionCheck = props.progression.map((raid, i) => {
-      let lfr = 0;
-      let n = 0;
-      let h = 0;
-      let m = 0;
-      raid.bosses.map((boss, j) => {
-        if (boss.lfrKills) {
-          lfr += 1;
-        }
-        if (boss.normalKills) {
-          n += 1;
-        }
-        if (boss.heroicKills) {
-          h += 1;
-        }
-        if (boss.mythicKills) {
-          m += 1;
-        }
-        return true;
-      });
-      return (
-        <div key={i} className="progression-row gold-text">
-          <p>
-            {lfr} / {raid.bosses.length}
-          </p>
-          <p>
-            {n} / {raid.bosses.length}
-          </p>
-          <p>
-            {h} / {raid.bosses.length}
-          </p>
-          <p>
-            {m} / {raid.bosses.length}
-          </p>
-        </div>
-      );
+  progressionCheck = props.progression.map((raid, i) => {
+    let lfr = 0;
+    let n = 0;
+    let h = 0;
+    let m = 0;
+    raid.bosses.map((boss, j) => {
+      if (boss.lfrKills) {
+        lfr += 1;
+      }
+      if (boss.normalKills) {
+        n += 1;
+      }
+      if (boss.heroicKills) {
+        h += 1;
+      }
+      if (boss.mythicKills) {
+        m += 1;
+      }
+      return true;
     });
-  }
-
-  // Setting the realm status section
-  if (props.realm) {
-    props.realm.status
-      ? (statusCheck = "status-true")
-      : (statusCheck = "status-false");
-    !props.realm.queue
-      ? (queueCheck = "No Queue")
-      : (queueCheck = "Realm Full");
-    realmDisplay = (
-      <div className={`realm-status ${statusCheck}`}>
-        <h2>{props.realm.name}</h2>
-        <h3>Population: {props.realm.population}</h3>
-        <h3>{props.realm.status && queueCheck}</h3>
+    return (
+      <div key={i} className="progression-row gold-text">
+        <p>
+          {lfr} / {raid.bosses.length}
+        </p>
+        <p>
+          {n} / {raid.bosses.length}
+        </p>
+        <p>
+          {h} / {raid.bosses.length}
+        </p>
+        <p>
+          {m} / {raid.bosses.length}
+        </p>
       </div>
     );
-  }
+  });
+
+  // Setting the realm status section
+
+  props.realm.status ? (statusCheck = "status-true") : (statusCheck = "status-false");
+  !props.realm.queue ? (queueCheck = "No Queue") : (queueCheck = "Realm Full");
+
+  realmDisplay = (
+    <div className={`realm-status ${statusCheck}`}>
+      <h2>{props.realm.name}</h2>
+      <h3>Population: {props.realm.population}</h3>
+      <h3>{props.realm.status && queueCheck}</h3>
+    </div>
+  );
 
   return (
     <div id="mobile-status">
       <div className="realm-raid-upper-status">
         {realmDisplay}
         <div className="raid-display">
-          {moment().day() === 5 || moment().day() === 6 ? (
-            <div className="raid-true white-text">Raid Tonight!</div>
-          ) : (
-            <div className="raid-false white-text">No Raid Tonight</div>
-          )}
+          {moment().day() === 5 || moment().day() === 6 ?
+            (<div className="raid-true white-text">Raid Tonight!</div>) :
+            (<div className="raid-false white-text">No Raid Tonight</div>)
+          }
           <div className="gold-text">
             {moment().format("dddd, MMMM Do YYYY")}
           </div>
