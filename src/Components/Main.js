@@ -22,6 +22,9 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
+    axios.get("/api/test").then(response => {
+      console.log(response)
+    })
     axios
       .get("/api/all")
       .then(response => {
