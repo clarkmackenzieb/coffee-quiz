@@ -23,7 +23,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/all")
+      .get("http://localhost:3004/api/all")
       .then(response => {
         let tempArr = [];
         tempArr.push(

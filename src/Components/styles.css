@@ -28,14 +28,12 @@
 }
 
 .main-background {
-  height: 100vh;
-  max-width: 100vw;
   background-color: rgb(46, 46, 46);
 }
 
 .mobile-responsive {
-  height: 100vh;
   display: flex;
+  flex-direction: column-reverse;
 }
 
 .desktop-feed {
@@ -370,6 +368,11 @@
 }
 
 @media only screen and (max-width: 1070px) and (min-width: 768px) {
+
+  #character-desktop {
+    display: flex;
+  }
+
   .main-background {
     height: 100vh;
     max-width: 100vw;
@@ -384,6 +387,7 @@
   }
 
   .mobile-responsive {
+    overflow: scroll;
     display: flex;
     flex-direction: column-reverse;
   }
