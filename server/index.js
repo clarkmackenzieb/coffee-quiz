@@ -19,3 +19,7 @@ app.get("/api/all", apiController.getAll);
 app.listen(port, () => {
   console.log(`I'll be right by your side till ${port}`);
 });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+})
