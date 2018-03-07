@@ -10,6 +10,9 @@ const app = express();
 app.use(cors());
 app.use(json());
 
+// use the build file
+app.use(express.static(`${__dirname}/../build`));
+
 // API endpoints
 app.get("/api/all", apiController.getAll);
 
