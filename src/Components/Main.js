@@ -4,6 +4,8 @@ import axios from "axios";
 import Character from "./Character";
 import Status from "./Status";
 
+import "./styles.css";
+
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -68,8 +70,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Main</h1>
+      <div className="main-background mobile-responsive">
         <Status
           realm={this.state.realm}
           feed={this.state.feed}

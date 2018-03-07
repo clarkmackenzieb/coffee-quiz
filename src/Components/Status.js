@@ -8,8 +8,28 @@ const Status = props => {
   let realmDisplay = "";
   let statusCheck = "";
   let queueCheck = "";
+  let achievements = "";
 
   console.log(props);
+  if (props.feed) {
+    achievements = props.feed.filter(x => {
+      return x.type === "ACHIEVEMENT";
+    });
+    achievements = achievements.map((ach, i) => {
+      return (
+        <div className="white-text achievement-card" key={i}>
+          <img
+            src={`https://wow.zamimg.com/images/wow/icons/large/
+${ach.achievement.icon}.jpg`}
+            alt="achievement-icon"
+          />
+          <h3>{ach.achievement.title}</h3>
+          <p>{moment(ach.timestamp).format("dddd, MMMM Do YYYY")}</p>
+          <p>{ach.achievement.description}</p>
+        </div>
+      );
+    });
+  }
   if (props.progression) {
     progressionCheck = props.progression.map((raid, i) => {
       let lfr = 0;
@@ -32,7 +52,7 @@ const Status = props => {
         return true;
       });
       return (
-        <div key={i} className="progression-row">
+        <div key={i} className="progression-row gold-text">
           <p>
             {lfr} / {raid.bosses.length}
           </p>
@@ -67,21 +87,23 @@ const Status = props => {
   }
 
   return (
-    <div>
+    <div id="mobile-status">
       <div className="realm-raid-upper-status">
         {realmDisplay}
         <div className="raid-display">
           {moment().day() === 5 || moment().day() === 6 ? (
-            <div className="raid-true">Raid Tonight!</div>
+            <div className="raid-true white-text">Raid Tonight!</div>
           ) : (
-            <div className="raid-false">No Raid Tonight</div>
+            <div className="raid-false white-text">No Raid Tonight</div>
           )}
-          <div>{moment().format("dddd, MMMM Do YYYY")}</div>
+          <div className="gold-text">
+            {moment().format("dddd, MMMM Do YYYY")}
+          </div>
         </div>
       </div>
-      <h3>Progression Status</h3>
+      <h3 className="white-text">Progression Status</h3>
       <div className="progression-container">
-        <p className="progression-name">
+        <p className="progression-name white-text">
           <span>Type</span>
           <span>EN</span>
           <span>ToV</span>
@@ -90,7 +112,7 @@ const Status = props => {
           <span>ATBT</span>
         </p>
         <div className="progression-chart">
-          <div className="progression-difficulty">
+          <div className="progression-difficulty white-text">
             <p>LFR</p>
             <p> N</p>
             <p> H</p>
@@ -99,6 +121,8 @@ const Status = props => {
           {progressionCheck}
         </div>
       </div>
+      <h3 className="white-text">Achievement Feed</h3>
+      <div className="desktop-feed">{achievements}</div>
     </div>
   );
 };
