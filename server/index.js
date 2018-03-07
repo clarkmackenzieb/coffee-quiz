@@ -11,10 +11,14 @@ app.use(cors());
 app.use(json());
 
 // use the build file
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 
 // API endpoints
 app.get("/api/all", apiController.getAll);
+
+app.get("/api/test", (req, res) => {
+  res.status(200).status("testing")
+})
 
 app.listen(port, () => {
   console.log(`I'll be right by your side till ${port}`);
