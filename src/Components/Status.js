@@ -10,7 +10,6 @@ const Status = props => {
   let queueCheck = "";
   let achievements = "";
 
-  console.log(props);
   if (props.feed) {
     achievements = props.feed.filter(x => {
       return x.type === "ACHIEVEMENT";
