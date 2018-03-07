@@ -1,4 +1,4 @@
-# Where in the World of Warcraft is Amilanae?
+# Where in the World of Warcraft is Mackenzie?
 
 In the real world, I'm a web developer named Mackenzie, but online I'm a druid named Amilanae. As an avid World of Warcraft player, it's always really important for me to keep up with my character's gear, progression, and raid schedule. I built this quick app to be able to check up on all of these when I can't log in to the game. 
 
