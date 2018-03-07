@@ -22,6 +22,7 @@ const Status = props => {
             src={`https://wow.zamimg.com/images/wow/icons/large/
 ${ach.achievement.icon}.jpg`}
             alt="achievement-icon"
+            className="achievement-image"
           />
           <h3>{ach.achievement.title}</h3>
           <p>{moment(ach.timestamp).format("dddd, MMMM Do YYYY")}</p>
@@ -101,7 +102,7 @@ ${ach.achievement.icon}.jpg`}
           </div>
         </div>
       </div>
-      <h3 className="white-text">Progression Status</h3>
+      <h3 className="white-text progression-title">Progression Status</h3>
       <div className="progression-container">
         <p className="progression-name white-text">
           <span>Type</span>
@@ -121,8 +122,10 @@ ${ach.achievement.icon}.jpg`}
           {progressionCheck}
         </div>
       </div>
-      <h3 className="white-text">Achievement Feed</h3>
-      <div className="desktop-feed">{achievements}</div>
+      <div id="achievement-feed">
+        <h3 className="white-text achievement-title">Achievement Feed</h3>
+        <div className="desktop-feed">{achievements}</div>
+      </div>
     </div>
   );
 };

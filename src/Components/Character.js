@@ -3,7 +3,6 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
-
   return (
     <div>
       <div className="character-container" id="mobile-character">
@@ -16,31 +15,15 @@ const Character = props => {
         />
         <div className="character-info">
           <p>
-            {props.profile.name}
-            <br /> Level {props.profile.level}
+            <span className="white-text">{props.profile.name}</span>
+            <br />{" "}
+            <span className="gold-text">Level {props.profile.level}</span>
+            <span className="orange-text"> Restoration Druid</span>
           </p>
-          <p>Item Level: {props.items.iLvl}</p>
+          <p className="white-text">
+            Item Level: <span className="purple-text">{props.items.iLvl}</span>
+          </p>
         </div>
-      </div>
-      <div id="mobile-gear">
-        <h3>Gear</h3>
-        {props.items &&
-          props.items.itemList.map((item, i) => {
-            return (
-              <div className="indiv-item" key={i}>
-                <img
-                  src={`https://wow.zamimg.com/images/wow/icons/large/${
-                    item.icon
-                  }.jpg`}
-                  alt="armor-icon"
-                  className="indiv-item-image"
-                />
-                <p>
-                  {item.name}, {item.itemLevel}
-                </p>
-              </div>
-            );
-          })}
       </div>
       <div id="character-desktop">
         <div className="character-panel">
@@ -53,7 +36,10 @@ const Character = props => {
               />
               <div className="panel-top-titles">
                 <p className="white-text">Amilanae</p>
-                <p><span className="gold-text">Level 110</span> <span className="orange-text">Restoration Druid</span></p>
+                <p>
+                  <span className="gold-text">Level 110</span>{" "}
+                  <span className="orange-text">Restoration Druid</span>
+                </p>
               </div>
             </div>
             <div className="gear-panel-bot">
@@ -338,11 +324,13 @@ const Character = props => {
                       </a>
                     )}
                   </div>
-                  <div className="gear-item"><img
-                          src={require('./shield-icon.png')}
-                          alt="armor-icon"
-                          className="indiv-item-image"
-                        /></div>
+                  <div className="gear-item">
+                    <img
+                      src={require("./shield-icon.png")}
+                      alt="armor-icon"
+                      className="indiv-item-image"
+                    />
+                  </div>
                 </div>
                 <div className="gear-item">
                   {props.items.itemList && (
@@ -368,7 +356,9 @@ const Character = props => {
             <div className="stat-section">
               Item Level
               <ul className="stat-list">
-                <li className="purple-text">{props.items && props.items.iLvl}</li>
+                <li className="purple-text">
+                  {props.items && props.items.iLvl}
+                </li>
               </ul>
             </div>
             <div className="stat-section">
