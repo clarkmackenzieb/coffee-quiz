@@ -7,7 +7,7 @@ const apiController = require("./controllers/api-controller");
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 app.use(json());
 
 // use the build file
