@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { json } = require("body-parser");
 
-const port = process.env.PORT || 3004;
+const port = process.env.PORT || 3005;
 const apiController = require("./controllers/api-controller");
 
 const app = express();
