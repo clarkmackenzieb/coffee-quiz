@@ -1,10 +1,12 @@
 import React from "react";
+import axios from "axios";
 
 // importing moment.js to handle everything time-related
 import moment from "moment";
 
 // importing stylesheet
 import "./styles.css";
+
 
 // I decided functional components would be most efficient w/ use of props
 const Status = props => {
@@ -14,27 +16,52 @@ const Status = props => {
   let statusCheck = "";
   let queueCheck = "";
   let achievements = "";
+  let feed = "";
 
   // Setting the achievement section
-
-  achievements = props.feed
-    .filter(x => {
-      return x.type === "ACHIEVEMENT";
-    })
-    .map((ach, i) => {
-      return (
-        <div className="white-text achievement-card" key={i}>
+  props.feed.splice(24, 25);
+  console.log(props.feed)
+  feed = props.feed.map((food, i) => {
+    switch (food.type) {
+      case "BOSSKILL":
+        return (<div key={i} className="white-text achievement-card" >
           <img
-            src={`https://wow.zamimg.com/images/wow/icons/large/${ach.achievement.icon}.jpg`}
+            src={`https://wow.zamimg.com/images/wow/icons/large/ability_creature_cursed_02.jpg`}
+            alt="boss-kill-icon"
+            className="achievement-image"
+          />
+          <h3>{food.achievement.title}</h3>
+          <p>{moment(food.timestamp).format("dddd, MMMM Do YYYY")}</p>
+          <p>Kill Count: {food.quantity}</p>
+        </div>);
+      case "LOOT":
+        return null;
+      case "CRITERIA":
+        return (<div key={i} className="white-text achievement-card" >
+          <img
+            src={`https://wow.zamimg.com/images/wow/icons/large/${food.achievement.icon}.jpg`}
+            alt="boss-kill-icon"
+            className="achievement-image"
+          />
+          <h3>{food.achievement.title}</h3>
+          <p>{moment(food.timestamp).format("dddd, MMMM Do YYYY")}</p>
+          <p>{food.achievement.description}</p>
+        </div>);
+      case "ACHIEVEMENT":
+        return (<div className="white-text achievement-card" key={i}>
+          <img
+            src={`https://wow.zamimg.com/images/wow/icons/large/${food.achievement.icon}.jpg`}
             alt="achievement-icon"
             className="achievement-image"
           />
-          <h3>{ach.achievement.title}</h3>
-          <p>{moment(ach.timestamp).format("dddd, MMMM Do YYYY")}</p>
-          <p>{ach.achievement.description}</p>
-        </div>
-      );
-    });
+          <h3>{food.achievement.title}</h3>
+          <p>{moment(food.timestamp).format("dddd, MMMM Do YYYY")}</p>
+          <p>{food.achievement.description}</p>
+        </div>);
+      default:
+        return null;
+    }
+  })
 
   // Setting the progression section
   progressionCheck = props.progression.map((raid, i) => {
@@ -123,8 +150,8 @@ const Status = props => {
         </div>
       </div>
       <div id="achievement-feed">
-        <h3 className="white-text achievement-title">Achievement Feed</h3>
-        <div className="desktop-feed">{achievements}</div>
+        <h3 className="white-text achievement-title">Activity Feed</h3>
+        <div className="desktop-feed">{feed}</div>
       </div>
     </div>
   );

@@ -23,5 +23,10 @@ module.exports = {
         res.status(200).json(tempArr);
       })
       .catch(console.log);
+  },
+  getItem: (req, res) => {
+    axios.get(`https://us.api.battle.net/wow/item/${req.params.id}?locale=en_US&apikey=${apiKey}`).then(response => {
+      res.status(200).json(response.data)
+    }).catch(console.log)
   }
 };

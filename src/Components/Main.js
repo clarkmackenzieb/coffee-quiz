@@ -23,16 +23,15 @@ export default class Main extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/all")
+      .get("http://localhost:3005/api/all")
       .then(response => {
-        let tempArr = [];
-        tempArr.push(
+        let tempArr = [
           response.data[1].progression.raids[35],
           response.data[1].progression.raids[36],
           response.data[1].progression.raids[37],
           response.data[1].progression.raids[38],
           response.data[1].progression.raids[39]
-        );
+        ];
 
         let itemList = [
           response.data[3].items.back,

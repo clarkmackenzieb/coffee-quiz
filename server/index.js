@@ -15,6 +15,7 @@ app.use(express.static(`${__dirname}/../build`));
 
 // API endpoints
 app.get("/api/all", apiController.getAll);
+app.get("/api/item/:id", apiController.getItem);
 
 app.listen(port, () => {
   console.log(`I'll be right by your side till ${port}`);
