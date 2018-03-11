@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 // importing moment.js to handle everything time-related
 import moment from "moment";
@@ -15,12 +14,10 @@ const Status = props => {
   let realmDisplay = "";
   let statusCheck = "";
   let queueCheck = "";
-  let achievements = "";
   let feed = "";
 
-  // Setting the achievement section
+  // Setting the activity section
   props.feed.splice(24, 25);
-  console.log(props.feed)
   feed = props.feed.map((food, i) => {
     switch (food.type) {
       case "BOSSKILL":

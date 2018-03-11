@@ -4,6 +4,27 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.item-0{
+  border: 1.5px rgb(75, 75, 75) solid;
+}
+.item-1{
+  border: 1.5px white solid;
+}
+.item-2{
+  border: 1.5px rgb(40, 216, 4) solid;
+}
+.item-3{
+  border: 1.5px blue solid;
+}
+.item-4{
+  border: 1.5px #7610b9 solid;
+}
+.item-5{
+  border: 1.5px rgb(255, 123, 0) solid;
+}
+.item-6{
+  border: 1.5px rgb(216, 216, 125) solid;
+}
 
 .loading {
   color: whitesmoke;
@@ -58,8 +79,6 @@
   border-radius: 10px;
   width: 60px;
   height: 60px;
-  border: rgb(43, 42, 42) 2px solid;
-  margin: 0 2px;
 }
 
 .character-container {
@@ -315,6 +334,8 @@
   .gear-weapons {
     display: flex;
     flex-direction: row;
+    width: 130px;
+    justify-content: space-between;
   }
 
   .resto-icon {
@@ -355,6 +376,7 @@
 
   .achievement-image {
     border: 2px solid #8e8a31;
+    border-radius: 10px;
   }
 
   .mobile-responsive {

@@ -3,6 +3,44 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
+  console.log(props)
+
+  let gearCol1 = props.items.itemList.slice(0, 7).map((item, i) => {
+    return (<div key={i} className="gear-item">
+      <a
+        href={`http://www.wowhead.com/item=${
+          item.id
+          }`}
+      >
+        <img
+          src={`https://wow.zamimg.com/images/wow/icons/large/${
+            item.icon
+            }.jpg`}
+          alt="armor-icon"
+          className={`indiv-item-image item-${item.quality}`}
+        />
+      </a>
+    </div>)
+  });
+
+  let gearCol2 = props.items.itemList.slice(7, 14).map((item, i) => {
+    return (<div key={i} className="gear-item">
+      <a
+        href={`http://www.wowhead.com/item=${
+          item.id
+          }`}
+      >
+        <img
+          src={`https://wow.zamimg.com/images/wow/icons/large/${
+            item.icon
+            }.jpg`}
+          alt="armor-icon"
+          className={`indiv-item-image item-${item.quality}`}
+        />
+      </a>
+    </div>)
+  });
+
   return (
     <div>
       {/* Mobile section of character display */}
@@ -10,7 +48,7 @@ const Character = props => {
         <img
           src={`https://render-us.worldofwarcraft.com/character/${
             props.profile.thumbnail
-          }`}
+            }`}
           alt="amilanae-avatar"
           className="character-avatar"
         />
@@ -48,234 +86,26 @@ const Character = props => {
             <div className="gear-panel-bot">
               <div className="gear-main-columns">
                 <div className="gear-column">
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[6].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[6].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[9].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[9].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[16].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[16].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[0].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[0].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[1].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[1].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[10].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[10].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[11].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[11].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
+                  {gearCol1}
                 </div>
                 <div className="gear-img" />
                 <div className="gear-column">
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[5].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[5].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[14].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[14].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[7].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[7].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[2].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[2].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[3].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[3].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[4].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[4].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[12].id
-                      }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[12].icon
-                        }.jpg`}
-                        alt="armor-icon"
-                        className="indiv-item-image"
-                      />
-                    </a>
-                  </div>
+                  {gearCol2}
                 </div>
               </div>
               <div className="gear-bottom-row">
                 <div className="gear-item">
                   <a
                     href={`http://www.wowhead.com/item=${
-                      props.items.itemList[15].id
-                    }`}
+                      props.items.itemList[14].id
+                      }`}
                   >
                     <img
                       src={`https://wow.zamimg.com/images/wow/icons/large/${
-                        props.items.itemList[15].icon
-                      }.jpg`}
+                        props.items.itemList[14].icon
+                        }.jpg`}
                       alt="armor-icon"
-                      className="indiv-item-image"
+                      className={`indiv-item-image item-${props.items.itemList[14].quality}`}
                     />
                   </a>
                 </div>
@@ -283,15 +113,15 @@ const Character = props => {
                   <div className="gear-item">
                     <a
                       href={`http://www.wowhead.com/item=${
-                        props.items.itemList[8].id
-                      }`}
+                        props.items.itemList[15].id
+                        }`}
                     >
                       <img
                         src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[8].icon
-                        }.jpg`}
+                          props.items.itemList[15].icon
+                          }.jpg`}
                         alt="armor-icon"
-                        className="indiv-item-image"
+                        className={`indiv-item-image item-${props.items.itemList[15].quality}`}
                       />
                     </a>
                   </div>
@@ -306,15 +136,15 @@ const Character = props => {
                 <div className="gear-item">
                   <a
                     href={`http://www.wowhead.com/item=${
-                      props.items.itemList[13].id
-                    }`}
+                      props.items.itemList[16].id
+                      }`}
                   >
                     <img
                       src={`https://wow.zamimg.com/images/wow/icons/large/${
-                        props.items.itemList[13].icon
-                      }.jpg`}
+                        props.items.itemList[16].icon
+                        }.jpg`}
                       alt="armor-icon"
-                      className="indiv-item-image"
+                      className={`indiv-item-image item-${props.items.itemList[16].quality}`}
                     />
                   </a>
                 </div>
