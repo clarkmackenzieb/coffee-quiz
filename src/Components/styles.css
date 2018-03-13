@@ -311,13 +311,21 @@
   .gear-img {
     height: 450px;
     width: 250px;
-    background-image: url("./ami-screenshot.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-position-y: -300px;
-    background-size: 500%;
     border: 1.5px #474747 solid;
     border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+
+
+  /* pulled this-- this will center the large image in the center of the containing div */
+  .gear-character-profile{
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -10075px;
+    right: -9999px;
+    margin: auto;
   }
 
   .gear-column {

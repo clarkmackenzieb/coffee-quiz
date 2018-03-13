@@ -15,6 +15,7 @@ app.use(express.static(`${__dirname}/../build`));
 
 // API endpoints
 app.get("/api/all", apiController.getAll);
+app.get("/api/character", apiController.getCharacter);
 app.get("/api/item/:id", apiController.getItem);
 
 app.listen(port, () => {

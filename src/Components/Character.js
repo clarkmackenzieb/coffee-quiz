@@ -3,46 +3,98 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
-  console.log(props)
+  let className = "";
+  let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
+  let getClass = (id) => {
+    switch (id) {
+      case 1:
+        className = "Warrior";
+        break;
+      case 2:
+        className = "Paladin";
+        break;
+      case 3:
+        className = "Hunter";
+        break;
+      case 4:
+        className = "Rogue";
+        break;
+      case 5:
+        className = "Priest";
+        break;
+      case 6:
+        className = "Death Knight";
+        break;
+      case 7:
+        className = "Shaman";
+        break;
+      case 8:
+        className = "Mage";
+        break;
+      case 9:
+        className = "Warlock";
+        break;
+      case 10:
+        className = "Monk";
+        break;
+      case 11:
+        className = "Druid";
+        break;
+      case 12:
+        className = "Demon Hunter";
+        break;
+      default:
+        className = "Player"
+        break;
+
+    }
+  }
+
+  getClass(props.profile.class);
 
   let gearCol1 = props.items.itemList.slice(0, 7).map((item, i) => {
-    return (<div key={i} className="gear-item">
-      <a
-        href={`http://www.wowhead.com/item=${
-          item.id
-          }`}
-      >
-        <img
-          src={`https://wow.zamimg.com/images/wow/icons/large/${
-            item.icon
-            }.jpg`}
-          alt="armor-icon"
-          className={`indiv-item-image item-${item.quality}`}
-        />
-      </a>
-    </div>)
+    // return (<div key={i} className="gear-item">
+    //   <a
+    //     href={`http://www.wowhead.com/item=${
+    //       item.id
+    //       }`}
+    //   >
+    //     <img
+    //       src={`https://wow.zamimg.com/images/wow/icons/large/${
+    //         item.icon
+    //         }.jpg`}
+    //       alt="armor-icon"
+    //       className={`indiv-item-image item-${item.quality}`}
+    //     />
+    //   </a>
+    // </div>)
   });
 
   let gearCol2 = props.items.itemList.slice(7, 14).map((item, i) => {
-    return (<div key={i} className="gear-item">
-      <a
-        href={`http://www.wowhead.com/item=${
-          item.id
-          }`}
-      >
-        <img
-          src={`https://wow.zamimg.com/images/wow/icons/large/${
-            item.icon
-            }.jpg`}
-          alt="armor-icon"
-          className={`indiv-item-image item-${item.quality}`}
-        />
-      </a>
-    </div>)
+    // return (<div key={i} className="gear-item">
+    //   <a
+    //     href={`http://www.wowhead.com/item=${
+    //       item.id
+    //       }`}
+    //   >
+    //     <img
+    //       src={`https://wow.zamimg.com/images/wow/icons/large/${
+    //         item.icon
+    //         }.jpg`}
+    //       alt="armor-icon"
+    //       className={`indiv-item-image item-${item.quality}`}
+    //     />
+    //   </a>
+    // </div>)
   });
 
   return (
     <div>
+      <div>
+        <input type="text" placeholder="Name" onChange={(e) => props.handleCharacterInfo("characterName", e.target.value)} />
+        <input type="text" placeholder="Realm" onChange={(e) => props.handleCharacterInfo("characterRealm", e.target.value)} />
+        <button onClick={() => props.submitCharacterChange()}>Submit</button>
+      </div>
       {/* Mobile section of character display */}
       <div className="character-container" id="mobile-character">
         <img
@@ -57,7 +109,7 @@ const Character = props => {
             <span className="white-text">{props.profile.name}</span>
             <br />
             <span className="gold-text">Level {props.profile.level}</span>
-            <span className="orange-text"> Restoration Druid</span>
+            <span className="orange-text">{props.spec[0].spec.name} {className}</span>
           </p>
           <p className="white-text">
             Item Level: <span className="purple-text">{props.items.iLvl}</span>
@@ -76,10 +128,10 @@ const Character = props => {
                 alt="restoration-druid-class-icon"
               />
               <div className="panel-top-titles">
-                <p className="white-text">Amilanae</p>
+                <p className="white-text">{props.profile.name}</p>
                 <p>
-                  <span className="gold-text">Level 110</span>{" "}
-                  <span className="orange-text">Restoration Druid</span>
+                  <span className="gold-text">Level {props.profile.level}</span>{" "}
+                  <span className="orange-text">{props.spec[0].spec.name} {className}</span>
                 </p>
               </div>
             </div>
@@ -88,7 +140,9 @@ const Character = props => {
                 <div className="gear-column">
                   {gearCol1}
                 </div>
-                <div className="gear-img" />
+                <div className="gear-img">
+                  <img className="gear-character-profile" src={`http://render-api-us.worldofwarcraft.com/static-render/us/${characterImage}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/${props.profile.race}-${props.profile.gender}.jpg`} alt="character-profile" />
+                </div>
                 <div className="gear-column">
                   {gearCol2}
                 </div>
