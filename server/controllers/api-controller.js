@@ -4,7 +4,7 @@ const { apiKey } = require("../config.js");
 module.exports = {
   getAll: (req, res) => {
 
-    let baseUrl = `https://us.api.battle.net/wow/character/wyrmrest%20accord/drascar?locale=en_US&apikey=${apiKey}`;
+    let baseUrl = `https://us.api.battle.net/wow/character/whisperwind/amilanae?locale=en_US&apikey=${apiKey}`;
     axios
       .all([
         axios.get(`${baseUrl}`),

@@ -53,39 +53,39 @@ const Character = props => {
   getClass(props.profile.class);
 
   let gearCol1 = props.items.itemList.slice(0, 7).map((item, i) => {
-    // return (<div key={i} className="gear-item">
-    //   <a
-    //     href={`http://www.wowhead.com/item=${
-    //       item.id
-    //       }`}
-    //   >
-    //     <img
-    //       src={`https://wow.zamimg.com/images/wow/icons/large/${
-    //         item.icon
-    //         }.jpg`}
-    //       alt="armor-icon"
-    //       className={`indiv-item-image item-${item.quality}`}
-    //     />
-    //   </a>
-    // </div>)
+    return (<div key={i} className="gear-item">
+      <a
+        href={`http://www.wowhead.com/item=${
+          item.id
+          }`}
+      >
+        <img
+          src={`https://wow.zamimg.com/images/wow/icons/large/${
+            item.icon
+            }.jpg`}
+          alt="armor-icon"
+          className={`indiv-item-image item-${item.quality}`}
+        />
+      </a>
+    </div>)
   });
 
   let gearCol2 = props.items.itemList.slice(7, 14).map((item, i) => {
-    // return (<div key={i} className="gear-item">
-    //   <a
-    //     href={`http://www.wowhead.com/item=${
-    //       item.id
-    //       }`}
-    //   >
-    //     <img
-    //       src={`https://wow.zamimg.com/images/wow/icons/large/${
-    //         item.icon
-    //         }.jpg`}
-    //       alt="armor-icon"
-    //       className={`indiv-item-image item-${item.quality}`}
-    //     />
-    //   </a>
-    // </div>)
+    return (<div key={i} className="gear-item">
+      <a
+        href={`http://www.wowhead.com/item=${
+          item.id
+          }`}
+      >
+        <img
+          src={`https://wow.zamimg.com/images/wow/icons/large/${
+            item.icon
+            }.jpg`}
+          alt="armor-icon"
+          className={`indiv-item-image item-${item.quality}`}
+        />
+      </a>
+    </div>)
   });
 
   return (
