@@ -34,7 +34,6 @@ export default class Main extends Component {
     axios
       .get(`http://localhost:3005/api/character?name=${this.state.characterName}&realm=${this.state.characterRealm}`)
       .then(response => {
-        console.log("items", response.data[3]);
         let tempArr = [
           response.data[1].progression.raids[35],
           response.data[1].progression.raids[36],
@@ -60,6 +59,7 @@ export default class Main extends Component {
           response.data[3].items.trinket1,
           response.data[3].items.wrist,
           response.data[3].items.mainHand,
+          (response.data[3].items.offHand) ? response.data[3].items.offHand : {},
           response.data[3].items.trinket2
         ];
 
@@ -88,7 +88,6 @@ export default class Main extends Component {
     axios
       .get("http://localhost:3005/api/all")
       .then(response => {
-        console.log(response.data[3])
         let tempArr = [
           response.data[1].progression.raids[35],
           response.data[1].progression.raids[36],
@@ -114,7 +113,7 @@ export default class Main extends Component {
           response.data[3].items.trinket1,
           response.data[3].items.wrist,
           response.data[3].items.mainHand,
-          response.data[3].items.offHand,
+          (response.data[3].items.offHand) ? response.data[3].items.offHand : {},
           response.data[3].items.trinket2
         ];
 

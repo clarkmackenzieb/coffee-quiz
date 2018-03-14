@@ -3,6 +3,7 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
+  console.log(props)
   let className = "";
   let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
   let getClass = (id) => {
@@ -181,7 +182,9 @@ const Character = props => {
                   </div>
                   <div className="gear-item">
                     <img
-                      src={require("./shield-icon.png")}
+                      src={(props.items.itemList[16].icon) ? `https://wow.zamimg.com/images/wow/icons/large/${
+                        props.items.itemList[16].icon
+                        }.jpg` : require("./shield-icon.png")}
                       alt="armor-icon"
                       className="indiv-item-image"
                     />
@@ -190,15 +193,15 @@ const Character = props => {
                 <div className="gear-item">
                   <a
                     href={`http://www.wowhead.com/item=${
-                      props.items.itemList[16].id
+                      props.items.itemList[17].id
                       }`}
                   >
                     <img
                       src={`https://wow.zamimg.com/images/wow/icons/large/${
-                        props.items.itemList[16].icon
+                        props.items.itemList[17].icon
                         }.jpg`}
                       alt="armor-icon"
-                      className={`indiv-item-image item-${props.items.itemList[16].quality}`}
+                      className={`indiv-item-image item-${props.items.itemList[17].quality}`}
                     />
                   </a>
                 </div>
