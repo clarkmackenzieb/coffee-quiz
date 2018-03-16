@@ -32,7 +32,7 @@ export default class Main extends Component {
 
   submitCharacterChange = () => {
     axios
-      .get(`http://localhost:3005/api/character?name=${this.state.characterName}&realm=${this.state.characterRealm}`)
+      .get(`/api/character?name=${this.state.characterName}&realm=${this.state.characterRealm}`)
       .then(response => {
         let tempArr = [
           response.data[1].progression.raids[35],
@@ -86,7 +86,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3005/api/all")
+      .get("/api/all")
       .then(response => {
         let tempArr = [
           response.data[1].progression.raids[35],
