@@ -3,6 +3,56 @@
   padding: 0;
   font-family: "Open Sans", sans-serif;
 }
+/* warrior */
+.class-1{
+  color: #C79C6E;
+}
+/* paladin */
+.class-2{
+  color: #F58CBA;
+}
+/* hunter */
+.class-3{
+  color: #ABD473;
+}
+/* rogue */
+.class-4{
+  color: #FFF569;
+}
+/* priest */
+.class-5{
+  color: #FFFFFF;
+}
+/* death knight */
+.class-6{
+  color: #C41F3B;
+}
+/* shaman */
+.class-7{
+  color: #0070DE;
+}
+/* mage */
+.class-8{
+  color: #69CCF0;
+}
+/* warlock */
+.class-9{
+  color: #9482C9;
+}
+/* monk */
+.class-10{
+  color: #00FF96;
+}
+/* druid */
+.class-11{
+  color: #FF7D0A;
+}
+/* demon hunter */
+.class-12{
+  color: #A330C9;
+}
+
+
 
 .item-0{
   border: 1.5px rgb(75, 75, 75) solid;
@@ -315,6 +365,11 @@
     border-radius: 5px;
     overflow: hidden;
     position: relative;
+    background-image: url("./ami-screenshot.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: -300px;
+    background-size: 500%;
   }
 
 
@@ -420,15 +475,32 @@
     overflow: scroll;
     display: flex;
     flex-direction: column-reverse;
+    overflow-x: hidden;
   }
 
   .realm-raid-upper-status {
     width: 70vw;
   }
+
+  .raid-heading{
+    margin-top: 10px;
+  }
+
   .progression-container {
     width: 70vw;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
   }
-  .desktop-feed {
-    width: 70vw;
+
+  .progression-chart{
+    display: flex;
+    align-content: space-around;
+    margin-top: 10px;
   }
+
+  #achievement-feed {
+    visibility: hidden;
+  }
+
 }

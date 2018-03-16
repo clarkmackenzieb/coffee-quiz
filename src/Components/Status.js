@@ -17,7 +17,6 @@ const Status = props => {
   let feed = "";
 
   // Setting the activity section
-  props.feed.splice(24, 25);
   feed = props.feed.map((food, i) => {
     switch (food.type) {
       case "BOSSKILL":
@@ -107,7 +106,7 @@ const Status = props => {
   realmDisplay = (
     <div className={`realm-status ${statusCheck}`}>
       <h2>{props.realm.name}</h2>
-      <h3>Population: {props.realm.population}</h3>
+      <h3 className="raid-heading">Population: {props.realm.population}</h3>
       <h3>{props.realm.status && queueCheck}</h3>
     </div>
   );
@@ -121,7 +120,7 @@ const Status = props => {
             (<div className="raid-true white-text">Raid Tonight!</div>) :
             (<div className="raid-false white-text">No Raid Tonight</div>)
           }
-          <div className="gold-text">
+          <div className="raid-heading gold-text">
             {moment().format("dddd, MMMM Do YYYY")}
           </div>
         </div>

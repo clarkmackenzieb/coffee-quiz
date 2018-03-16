@@ -3,9 +3,8 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
-  console.log(props)
   let className = "";
-  let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
+  // let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
   let getClass = (id) => {
     switch (id) {
       case 1:
@@ -110,7 +109,7 @@ const Character = props => {
             <span className="white-text">{props.profile.name}</span>
             <br />
             <span className="gold-text">Level {props.profile.level}</span>
-            <span className="orange-text">{props.spec[0].spec.name} {className}</span>
+            <span className={`class-${props.profile.class}`}>{props.spec[0].spec.name} {className}</span>
           </p>
           <p className="white-text">
             Item Level: <span className="purple-text">{props.items.iLvl}</span>
@@ -131,8 +130,8 @@ const Character = props => {
               <div className="panel-top-titles">
                 <p className="white-text">{props.profile.name}</p>
                 <p>
-                  <span className="gold-text">Level {props.profile.level}</span>{" "}
-                  <span className="orange-text">{props.spec[0].spec.name} {className}</span>
+                  <span className="gold-text">Level {props.profile.level}</span>
+                  <span className={`class-${props.profile.class}`}> {props.spec[0].spec.name} {className}</span>
                 </p>
               </div>
             </div>
@@ -142,7 +141,7 @@ const Character = props => {
                   {gearCol1}
                 </div>
                 <div className="gear-img">
-                  <img className="gear-character-profile" src={`http://render-api-us.worldofwarcraft.com/static-render/us/${characterImage}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/${props.profile.race}-${props.profile.gender}.jpg`} alt="character-profile" />
+                  {/* <img className="gear-character-profile" src={`http://render-api-us.worldofwarcraft.com/static-render/us/${characterImage}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/${props.profile.race}-${props.profile.gender}.jpg`} alt="character-profile" /> */}
                 </div>
                 <div className="gear-column">
                   {gearCol2}
