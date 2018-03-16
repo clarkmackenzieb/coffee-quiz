@@ -91,11 +91,11 @@ const Character = props => {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <input type="text" placeholder="Name" onChange={(e) => props.handleCharacterInfo("characterName", e.target.value)} />
         <input type="text" placeholder="Realm" onChange={(e) => props.handleCharacterInfo("characterRealm", e.target.value)} />
         <button onClick={() => props.submitCharacterChange()}>Submit</button>
-      </div>
+      </div> */}
       {/* Mobile section of character display */}
       <div className="character-container" id="mobile-character">
         <img
