@@ -3,8 +3,9 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
+  console.log(props)
   let className = "";
-  // let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
+  let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
   let getClass = (id) => {
     switch (id) {
       case 1:
@@ -53,21 +54,29 @@ const Character = props => {
   getClass(props.profile.class);
 
   let gearCol1 = props.items.itemList.slice(0, 7).map((item, i) => {
-    return (<div key={i} className="gear-item">
-      <a
-        href={`http://www.wowhead.com/item=${
-          item.id
-          }`}
-      >
-        <img
-          src={`https://wow.zamimg.com/images/wow/icons/large/${
-            item.icon
-            }.jpg`}
-          alt="armor-icon"
-          className={`indiv-item-image item-${item.quality}`}
-        />
-      </a>
-    </div>)
+    if (item.id) {
+      return (<div key={i} className="gear-item">
+        <a
+          href={`http://www.wowhead.com/item=${
+            item.id
+            }`}
+        >
+          <img
+            src={`https://wow.zamimg.com/images/wow/icons/large/${
+              item.icon
+              }.jpg`}
+            alt="armor-icon"
+            className={`indiv-item-image item-${item.quality}`}
+          />
+        </a>
+      </div>)
+    }
+    else {
+      return (<div key={i} className="gear-item">
+
+      </div>)
+    }
+
   });
 
   let gearCol2 = props.items.itemList.slice(7, 14).map((item, i) => {
@@ -124,7 +133,7 @@ const Character = props => {
             <div className="gear-panel-top">
               <img
                 className="resto-icon"
-                src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_healingtouch.jpg"
+                src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_starfall.jpg"
                 alt="restoration-druid-class-icon"
               />
               <div className="panel-top-titles">
@@ -137,13 +146,13 @@ const Character = props => {
             </div>
             <div className="gear-panel-bot">
               <div className="gear-main-columns">
-                <div className="gear-column">
+                <div className="gear-column" id="gear-col-left">
                   {gearCol1}
                 </div>
                 <div className="gear-img">
-                  {/* <img className="gear-character-profile" src={`http://render-api-us.worldofwarcraft.com/static-render/us/${characterImage}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/${props.profile.race}-${props.profile.gender}.jpg`} alt="character-profile" /> */}
+                  <img className="gear-character-profile" src={`http://render-api-us.worldofwarcraft.com/static-render/us/${characterImage}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/${props.profile.race}-${props.profile.gender}.jpg`} alt="character-profile" />
                 </div>
-                <div className="gear-column">
+                <div className="gear-column" id="gear-col-right">
                   {gearCol2}
                 </div>
               </div>
@@ -183,7 +192,7 @@ const Character = props => {
                     <img
                       src={(props.items.itemList[16].icon) ? `https://wow.zamimg.com/images/wow/icons/large/${
                         props.items.itemList[16].icon
-                        }.jpg` : require("./shield-icon.png")}
+                        }.jpg` : require("../assets/shield-icon.png")}
                       alt="armor-icon"
                       className="indiv-item-image"
                     />

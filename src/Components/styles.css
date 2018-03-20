@@ -241,7 +241,7 @@
   .main-background {
     height: 100vh;
     max-width: 100vw;
-    background-image: url("./legion-background.jpg");
+    background-image: url("../assets/legion-background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -365,7 +365,7 @@
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    background-image: url("./ami-screenshot.jpg");
+    background-image: url("../assets/ami-screenshot.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-position-y: -300px;
@@ -388,10 +388,28 @@
     flex-direction: column;
     justify-content: space-around;
     height: 450px;
+    width: 65px;
   }
+
   .gear-item {
     width: 60px;
     height: 60px;
+  }
+
+  #gear-col-left {
+    background-image: url("../assets/left-gear-column.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-position-y: 5px;
+    background-position-x: -8px;
+  }
+
+  #gear-col-right {
+    background-image: url("../assets/right-gear-column.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
   }
 
   .gear-weapons {
@@ -461,7 +479,7 @@
   .main-background {
     height: 100vh;
     max-width: 100vw;
-    background-image: url("./legion-background.jpg");
+    background-image: url("../assets/legion-background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
