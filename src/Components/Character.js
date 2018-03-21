@@ -3,7 +3,6 @@ import React from "react";
 import "./styles.css";
 
 const Character = props => {
-  console.log(props)
   let className = "";
   let characterImage = props.profile.thumbnail.slice(0, props.profile.thumbnail.indexOf("avatar") - 1);
   let getClass = (id) => {
@@ -54,7 +53,7 @@ const Character = props => {
   getClass(props.profile.class);
 
   let gearCol1 = props.items.itemList.slice(0, 7).map((item, i) => {
-    if (item.id) {
+    if (item) {
       return (<div key={i} className="gear-item">
         <a
           href={`http://www.wowhead.com/item=${
@@ -73,14 +72,48 @@ const Character = props => {
     }
     else {
       return (<div key={i} className="gear-item">
-
+      <img
+        src={require(`../assets/gear-icons/${i}-icon.png`)}
+        alt="armor-icon"
+        className="indiv-item-image"
+      />
       </div>)
     }
 
   });
 
   let gearCol2 = props.items.itemList.slice(7, 14).map((item, i) => {
-    return (<div key={i} className="gear-item">
+    if (item) {
+      return (<div key={i} className="gear-item">
+        <a
+          href={`http://www.wowhead.com/item=${
+            item.id
+            }`}
+        >
+          <img
+            src={`https://wow.zamimg.com/images/wow/icons/large/${
+              item.icon
+              }.jpg`}
+            alt="armor-icon"
+            className={`indiv-item-image item-${item.quality}`}
+          />
+        </a>
+      </div>)
+    }
+    else {
+      return (<div key={i} className="gear-item">
+      <img
+        src={require(`../assets/gear-icons/${i+7}-icon.png`)}
+        alt="armor-icon"
+        className="indiv-item-image"
+      />
+      </div>)
+    }
+  });
+
+  let gearBotRow = props.items.itemList.slice(14).map((item, i) => {
+    if (item) {
+      return (<div key={i} className="gear-item">
       <a
         href={`http://www.wowhead.com/item=${
           item.id
@@ -95,15 +128,24 @@ const Character = props => {
         />
       </a>
     </div>)
-  });
+    }
+    else {
+      return (<div key={i} className="gear-item">
+      <img
+        src={require(`../assets/gear-icons/${i+14}-icon.png`)}
+        alt="armor-icon"
+        className="indiv-item-image"
+      />
+      </div>)
+    }})
 
   return (
     <div>
-      {/* <div>
+      <div>
         <input type="text" placeholder="Name" onChange={(e) => props.handleCharacterInfo("characterName", e.target.value)} />
         <input type="text" placeholder="Realm" onChange={(e) => props.handleCharacterInfo("characterRealm", e.target.value)} />
         <button onClick={() => props.submitCharacterChange()}>Submit</button>
-      </div> */}
+      </div>
       {/* Mobile section of character display */}
       <div className="character-container" id="mobile-character">
         <img
@@ -132,9 +174,9 @@ const Character = props => {
           <div className="character-gear-panel">
             <div className="gear-panel-top">
               <img
-                className="resto-icon"
-                src="http://wow.zamimg.com/images/wow/icons/large/spell_nature_starfall.jpg"
-                alt="restoration-druid-class-icon"
+                className="spec-icon"
+                src={require(`../assets/classes/class/${props.profile.class}/${props.spec[0].spec.name}.png`)}
+                alt="spec-icon"
               />
               <div className="panel-top-titles">
                 <p className="white-text">{props.profile.name}</p>
@@ -157,62 +199,9 @@ const Character = props => {
                 </div>
               </div>
               <div className="gear-bottom-row">
-                <div className="gear-item">
-                  <a
-                    href={`http://www.wowhead.com/item=${
-                      props.items.itemList[14].id
-                      }`}
-                  >
-                    <img
-                      src={`https://wow.zamimg.com/images/wow/icons/large/${
-                        props.items.itemList[14].icon
-                        }.jpg`}
-                      alt="armor-icon"
-                      className={`indiv-item-image item-${props.items.itemList[14].quality}`}
-                    />
-                  </a>
-                </div>
-                <div className="gear-weapons">
-                  <div className="gear-item">
-                    <a
-                      href={`http://www.wowhead.com/item=${
-                        props.items.itemList[15].id
-                        }`}
-                    >
-                      <img
-                        src={`https://wow.zamimg.com/images/wow/icons/large/${
-                          props.items.itemList[15].icon
-                          }.jpg`}
-                        alt="armor-icon"
-                        className={`indiv-item-image item-${props.items.itemList[15].quality}`}
-                      />
-                    </a>
-                  </div>
-                  <div className="gear-item">
-                    <img
-                      src={(props.items.itemList[16].icon) ? `https://wow.zamimg.com/images/wow/icons/large/${
-                        props.items.itemList[16].icon
-                        }.jpg` : require("../assets/shield-icon.png")}
-                      alt="armor-icon"
-                      className="indiv-item-image"
-                    />
-                  </div>
-                </div>
-                <div className="gear-item">
-                  <a
-                    href={`http://www.wowhead.com/item=${
-                      props.items.itemList[17].id
-                      }`}
-                  >
-                    <img
-                      src={`https://wow.zamimg.com/images/wow/icons/large/${
-                        props.items.itemList[17].icon
-                        }.jpg`}
-                      alt="armor-icon"
-                      className={`indiv-item-image item-${props.items.itemList[17].quality}`}
-                    />
-                  </a>
-                </div>
+                {gearBotRow}
+                
+                
               </div>
             </div>
           </div>

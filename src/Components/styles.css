@@ -49,7 +49,7 @@
 }
 /* demon hunter */
 .class-12{
-  color: #A330C9;
+  color: rgb(111, 35, 136);
 }
 
 
@@ -355,7 +355,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 5px;
+    margin: 0 10px;
   }
 
   .gear-img {
@@ -365,11 +365,10 @@
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    background-image: url("../assets/ami-screenshot.jpg");
+    background-image: url("../assets/image-fail-background.png");
     background-position: center;
-    background-repeat: no-repeat;
-    background-position-y: -300px;
-    background-size: 500%;
+    background-size: cover;
+    background-position-x: -120px;
   }
 
 
@@ -396,22 +395,6 @@
     height: 60px;
   }
 
-  #gear-col-left {
-    background-image: url("../assets/left-gear-column.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 130%;
-    background-position-y: 5px;
-    background-position-x: -8px;
-  }
-
-  #gear-col-right {
-    background-image: url("../assets/right-gear-column.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-  }
-
   .gear-weapons {
     display: flex;
     flex-direction: row;
@@ -419,12 +402,12 @@
     justify-content: space-between;
   }
 
-  .resto-icon {
+  .spec-icon {
     height: 70px;
     width: 70px;
-    border-radius: 50px;
-    margin: 5px;
-    border: 3px solid #8e8a31;
+    border-radius: 5px;
+    margin: 4px;
+    border: 2px solid black;
   }
 
   .realm-raid-upper-status {
